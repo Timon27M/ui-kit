@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c",
+    "build": "tsc -b && vite build",
     "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
