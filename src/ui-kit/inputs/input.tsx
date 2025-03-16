@@ -1,5 +1,5 @@
 import styles from './input.module.scss';
-
+import React from 'react';
 // Тип для register (совместим с react-hook-form)
 type RegisterType = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

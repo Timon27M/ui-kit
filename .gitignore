@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 *storybook.log
+
+.stories/
+.storybook/
+*.stories.tsx
+*.stories.ts
+node_modules/

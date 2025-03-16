@@ -1,5 +1,5 @@
 import styles from "./button.module.scss";
-
+import React from 'react';
 type TProps = {
   onClick: () => void;
   size?: "large" | "medium" | "small";
