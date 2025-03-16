@@ -2,19 +2,20 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
+import postcss from 'rollup-plugin-postcss';
 
 export default [
   {
-    input: 'src/index.ts', // Точка входа вашего UI-кита
+    input: 'src/index.ts',
     output: [
       {
         file: 'dist/index.js',
-        format: 'cjs', // CommonJS
+        format: 'cjs',
         sourcemap: true,
       },
       {
         file: 'dist/index.esm.js',
-        format: 'esm', // ES Modules
+        format: 'esm',
         sourcemap: true,
       },
     ],
@@ -22,8 +23,14 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
+      postcss({
+        extensions: ['.scss', '.css'],
+        modules: true, // Включает поддержку CSS Modules (.module.scss)
+        use: ['sass'], // Использует sass для компиляции SCSS
+        extract: false, // Вставляет стили в JS (для библиотек обычно так лучше)
+      }),
     ],
-    external: ['react', 'react-dom'], // Исключаем зависимости из сборки
+    external: ['react', 'react-dom'],
   },
   {
     input: 'src/index.ts',
@@ -31,6 +38,6 @@ export default [
       file: 'dist/index.d.ts',
       format: 'es',
     },
-    plugins: [dts()], // Генерация файла типов
+    plugins: [dts()],
   },
 ];

@@ -1,8 +1,9 @@
 {
   "name": "tim-uikit",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.4",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,8 +18,6 @@
     "dist"
   ],
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "sass": "^1.85.1"
   },
   "devDependencies": {
@@ -45,14 +44,20 @@
     "eslint-plugin-storybook": "^0.11.4",
     "globals": "^15.15.0",
     "playwright": "^1.51.0",
+    "postcss": "^8.5.3",
     "rollup": "^4.35.0",
     "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-postcss": "^4.0.2",
     "storybook": "8.6.6",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vitest": "^3.0.8"
   },
+  "peerDependencies": {
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0"
+},
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"

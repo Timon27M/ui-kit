@@ -1,5 +1,0 @@
-.stories/
-.storybook/
-*.stories.tsx
-*.stories.ts
-node_modules/
